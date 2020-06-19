@@ -1,0 +1,2 @@
+class Rant < ApplicationRecord
+end
