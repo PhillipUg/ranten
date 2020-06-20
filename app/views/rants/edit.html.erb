@@ -1,6 +1,21 @@
-<h1>Editing Rant</h1>
+<div class="section">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-half">
+				<h1 class="title">Editing Rant</h1>
+				<%= render 'form', content: @rant %>
+			</div>
+		</div>
+	</div>
+</div>
 
-<%= render 'form', rant: @rant %>
-
-<%= link_to 'Show', @rant %> |
-<%= link_to 'Back', rants_path %>
+<nav class="navbar is-fixed-bottom">
+	<div class="navbar-menu">
+		<div class="navbar-item">
+			<div class="field is-grouped">
+				<p class="control">
+					<%= link_to 'Cancel', rants_path, class: "button is-dark" %>
+				</p>
+		</div>
+	</div>
+</nav>

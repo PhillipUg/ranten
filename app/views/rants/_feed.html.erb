@@ -1,0 +1,55 @@
+<div class="column is-two-thirds is-scrollable">
+
+	<% if current_user %>
+	<article class="media box">
+		<figure class="media-left">
+			<p class="image is-64x64">
+				<img src="https://bulma.io/images/placeholders/64x64.png" class="avatar">
+			</p>
+		</figure>
+
+		<div class="media-content">
+			<%= render 'rants/form' %>
+		</div>
+	</article>
+	<% end %>
+
+<div class="">
+	<% @rants.each do |rant| %>
+	<div class="box">
+		<article class="media">
+			<div class="media-left">
+				<figure class="image is-64x64">
+					<img src="https://bulma.io/images/placeholders/64x64.png" class="avatar">
+				</figure>
+			</div>
+			<div class="media-content">
+				<div class="content">
+					<strong><%= rant.author.full_name %></strong><br />
+					<small><%= rant.author.username %></small><br />
+					<p><%= rant.content %></p>
+				</div>
+
+				<% if current_user.id == rant.author_id %>
+				<nav class="level">
+					<div class="level-left is-mobile">
+						<%= link_to rant, class: "level-item" do %>
+						<span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+						<% end %>
+
+						<%= link_to edit_rant_path(rant), class: "level-item" do %>
+						<span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+						<% end %>
+
+						<%= link_to rant, method: :delete, data: { confirm: "Are you sure you want to delete this rant?"} do %>
+						<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+						<% end %>
+					</div>
+				</nav>
+				<% end %>
+			</div>
+		</article>
+	</div>
+	<% end %>
+</div>
+</div>
