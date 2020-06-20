@@ -14,4 +14,45 @@
  *= require_self
  */
 
-@import "bulma";
+ @import "bulma";
+
+ html {
+ 	overflow: hidden;
+ }
+
+ .is-fullheight {
+ 	height: 100vh;
+ 	background-color: #213246;
+ }
+
+ .logo {
+ 	border-radius: 20%;
+ 	margin-top: 7px;
+ 	margin-left: 7px;
+ 	margin-right: 10px;
+ }
+
+ .logo-name {
+ 	font-size: 24px;
+ 	color: white;
+ 	padding: 0;
+ 	margin-left: 20px;
+ }
+
+ .avatar {
+ 	border-radius: 20%;
+ }
+
+ .is-scrollable {
+ 	overflow-y: auto;
+ 	height: 100vh;
+ 	padding: 60px 0;
+ 	scrollbar-width: none;
+ 	&::-webkit-scrollbar { 
+ 		display: none;  /* Safari and Chrome */
+ 	}
+ }
+
+ .navbar {
+ 	height: 80px;
+ }
