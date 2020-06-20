@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.all.order("created_at DESC")
   end
 
   # GET /users/1
@@ -19,12 +19,18 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def follow
+    @following = Following.new(follower_id: current_user.id, followed_id: params[:user_id])
+    @following.save
+    redirect_to root_path, notice: "Started following"
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)
-
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      session[:user_id] = @user.id
+      redirect_to rants_path, notice: 'User was successfully created.'
     else
       render :new
     end
@@ -55,4 +61,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :full_name, :photo, :cover_image)
     end
-end
+  end
