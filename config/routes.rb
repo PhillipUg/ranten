@@ -9,6 +9,7 @@ Rails.application.routes.draw do
  
   resources :users do
  		post 'follow', to: 'users#follow', as: 'follow'
+ 		delete 'unfollow', to: 'users#unfollow', as: 'unfollow'
   end
 
   resources :rants
