@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @followed_users = @user.followed_users
+    @users_following = @user.users_following
   end
 
   # GET /users/new
@@ -22,7 +24,13 @@ class UsersController < ApplicationController
   def follow
     @following = Following.new(follower_id: current_user.id, followed_id: params[:user_id])
     @following.save
-    redirect_to root_path, notice: "Started following"
+    redirect_to user_path(params[:user_id]), notice: "Started following"
+  end
+
+  def unfollow
+    @following = Following.find_by(follower_id: current_user.id, followed_id: params[:user_id])
+    @following.destroy
+    redirect_to user_path(params[:user_id]), notice: "Unfollowed User"
   end
 
   # POST /users
