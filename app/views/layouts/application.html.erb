@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ranten</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Ranten</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <div class="columns is-gapless">
+  <% if current_user %>
+
+    <%= render 'users/profile' %>
+    <div class="column has-background-white">
+      <%= render 'layouts/navigation' %>
+      <%= yield %>
+    </div>
+  <% else %>
+    <div class="column has-background-white">
+      <%= render 'layouts/navigation' %>
+      <%= yield %>
+    </div>
+  <% end %>
+  </div>
+
+
+</body>
 </html>
