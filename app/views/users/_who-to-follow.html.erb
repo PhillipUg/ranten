@@ -2,7 +2,7 @@
 	<nav class="panel">
 		<p class="panel-heading">Who to Follow</p>
 		<% @users.each do |user| %>
-		<% if user.id != current_user.id %>
+		<% if user.id != current_user.id && !current_user.followed_users.include?(user)%>
 		<div class="panel-block">
 			<article class="media">
 				<div class="media-left">
