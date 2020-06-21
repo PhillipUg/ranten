@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+	has_one_attached :photo
+	has_one_attached :cover_image
+
 	has_many :rants, foreign_key: :author_id
 	
 	has_many :followings, foreign_key: :follower_id
