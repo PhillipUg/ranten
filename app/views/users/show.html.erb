@@ -1,17 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<div class="columns">
+<div class="columns ">
 	<div class="column is-three-quarters is-scrollable">
-		
-		<% if current_user.cover_image.attached? %>
-		<%= image_tag(current_user.cover_image, width: 720, height: 240) %>
-		<% else %>
-		<figure class="image is-3by1">
-			<img src="https://bulma.io/images/placeholders/720x240.png" class="avatar">
-		</figure>
-		<% end %>
-
-
+		<%= default_cover(current_user) %>
 		<p class="panel-heading">
 			Rants
 		</p>
@@ -21,18 +12,12 @@
 			<div class="box">
 				<article class="media">
 					<div class="media-left">
-						<% if current_user.photo.attached? %>
-						<%= image_tag(current_user.photo, width: 48)  %>
-						<% else %>
-						<figure class="image is-64x64">
-							<img src="https://bulma.io/images/placeholders/64x64.png" class="avatar">
-						</figure>
-						<% end %>
+						<%= default_avatar(rant.author) %>
 					</div>
 					<div class="media-content">
 						<div class="content">
 							<strong><%= rant.author.full_name %></strong><br />
-							<small><%= rant.author.username %></small><br />
+							<small>@<%= rant.author.username %></small><br />
 							<p><%= rant.content %></p>
 						</div>
 
@@ -63,9 +48,7 @@
 
 
 	<div class="column">
-		<figure class="image is-64x64">
-			<img src="https://bulma.io/images/placeholders/64x64.png" class="avatar">
-		</figure>
+		<%= default_avatar(@user) %>
 		<p>
 			<strong class=""><%= @user.full_name.upcase %></strong><br />
 			<% if current_user != @user %>
@@ -108,41 +91,13 @@
 			<div class="panel-block">
 				<article class="media">
 					<div class="media-left">
-						<figure class="image is-32x32">
-							<img src="https://bulma.io/images/placeholders/64x64.png" class="avatar">
-						</figure>
+						<%= default_avatar(follower) %>
 					</div>
 					<div class="media-content">
 						<div class="content">
 							<p>
 								<strong><%= link_to "#{follower.full_name.capitalize}", user_path(follower.id) %></strong><br>
 								<small>@<%= follower.username %></small>
-							</p>
-						</div>
-					</div>
-				</article>
-			</div>
-			<%# end %>
-			<% end %>
-		</nav>
-
-
-		<nav class="panel">
-			<p class="panel-heading">FOLLOWING</p>
-			<% @followed_users.each do |following| %>
-			<%# if following.id != current_user.id %>
-			<div class="panel-block">
-				<article class="media">
-					<div class="media-left">
-						<figure class="image is-32x32">
-							<img src="https://bulma.io/images/placeholders/64x64.png" class="avatar">
-						</figure>
-					</div>
-					<div class="media-content">
-						<div class="content">
-							<p>
-								<strong><%= link_to "#{following.full_name.capitalize}", user_path(following.id) %></strong><br>
-								<small>@<%= following.username %></small>
 							</p>
 						</div>
 					</div>

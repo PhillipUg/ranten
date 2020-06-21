@@ -3,19 +3,12 @@
 		<div class="panel-block has-text-white">
 			<article class="media">
 				<div class="media-left">
-					<% if current_user.photo.attached? %>
-					<%= image_tag(current_user.photo, width: 80, class: "avatar")  %>
-					<% else %>
-					<figure class="image is-64x64">
-						<img src="https://bulma.io/images/placeholders/64x64.png" class="avatar">
-					</figure>
-					<% end %>
+					<%= default_avatar(current_user) %>
 				</div>
 				<div class="media-content">
 					<div class="content">
 						<p>
 							<strong class="has-text-white"><%= current_user.full_name.upcase %></strong><br />
-							<small><%#= current_user.username %></small>
 						</p>
 					</div>
 				</div>
@@ -23,12 +16,6 @@
 		</div>
 		<div class="panel-block ">
 			<div class="level is-mobile has-text-white">
-				<!-- <div class="level-item has-centered-text">
-					<div>
-						<p class="heading">Rants</p>
-						<p class="title is-6 has-text-white"><%= current_user.rants.count %></p>
-					</div>
-				</div> -->
 				<div class="level-item has-centered-text">
 					<div>
 						<p class="title is-6 has-text-white"><%= current_user.followed_users.count %></p>
