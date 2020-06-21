@@ -44,9 +44,8 @@
  }
 
  .is-scrollable {
- 	overflow-y: auto;
+ 	overflow: auto;
  	height: 100vh;
- 	padding: 60px 0;
  	scrollbar-width: none;
  	&::-webkit-scrollbar { 
  		display: none;  /* Safari and Chrome */
