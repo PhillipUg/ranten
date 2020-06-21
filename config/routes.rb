@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-	root 'rants#index'
 
-	get 'home', to: 'homepage#home', as: 'home'
+	root "homepage#home"
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
