@@ -14,7 +14,13 @@
  *= require_self
  */
 
+ $panel-block-color: white;
+	
+
  @import "bulma";
+ @import '_profile';
+ @import '_nav';
+
 
  html {
  	overflow: hidden;
@@ -32,15 +38,12 @@
  	margin-right: 10px;
  }
 
- .logo-name {
- 	font-size: 24px;
- 	color: white;
- 	padding: 0;
- 	margin-left: 20px;
- }
 
  .avatar {
  	border-radius: 20%;
+ 	display: flex;
+ 	justify-content: middle;
+ 	align-items: center;
  }
 
  .is-scrollable {
@@ -55,3 +58,4 @@
  .navbar {
  	height: 80px;
  }
+

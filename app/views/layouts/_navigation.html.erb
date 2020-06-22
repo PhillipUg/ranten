@@ -1,38 +1,50 @@
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="image is-64x64" href="/">
+   <!--  <a class="image is-64x64" href="/">
       <img src="https://api.adorable.io/avatars/112/abott@adorable.png" class="logo ">
-    </a>
+    </a> -->
     <a href="/" class="navbar-item logo-name">
       <strong>RANTEN</strong>
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
     </a>
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
-      <% if current_user %>
       <div class="navbar-item">
-        <%= link_to "#{current_user.username.upcase}", user_path(current_user.id), class: "has-text-white"%>
+        <span class="icon">
+          <i class="fas fa-pen"></i>
+        </span>
       </div>
       <div class="navbar-item">
-        <div class="buttons">
-          <%= link_to 'Logout', logout_path, class: "button is-danger", method: :delete %>
+        <span class="icon">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </div>
+      <div class="navbar-item">
+        <span class="icon">
+          <i class="fas fa-search"></i>
+        </span>
+        </div>
+        <div class="navbar-item">
+            <div class="dropdown is-hoverable is-right">
+              <div class="dropdown-trigger">
+                <span class="icon">
+                  <i class="fas fa-cog" aria-controls="dropdown-menu" aria-haspopup="true" aria-hidden="true"></i>
+                </span>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                  <% if current_user %>
+                  <%= link_to 'Logout', logout_path, class: "dropdown-item", method: :delete %>
+                  <% else %>
+                  <%= link_to 'Sign up', new_user_path, class: "dropdown-item" %>
+                  <%= link_to 'Log in', login_path, class: "dropdown-item" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%# end %>
         </div>
       </div>
-      <% else %>
-      <div class="navbar-item">
-        <div class="buttons">
-          <%= link_to 'Sign up', new_user_path, class: "button is-primary" %>
-          <%= link_to 'Log in', login_path, class: "button is-light" %>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</nav>
+    </nav>

@@ -1,39 +1,36 @@
-<div class="column is-one-fifth is-fullheight">
-	<nav class="panel ">
-		<div class="panel-block has-text-white">
-			<article class="media">
-				<div class="media-left">
-					<%= default_avatar(current_user) %>
-				</div>
-				<div class="media-content">
-					<div class="content">
-						<p>
-							<strong class="has-text-white"><%= current_user.full_name.upcase %></strong><br />
-						</p>
-					</div>
-				</div>
-			</article>
+<div class="column is-2 profile">
+	<article class="prof">
+		<div class="prof-img">
+			<%= default_avatar(current_user) %>
 		</div>
-		<div class="panel-block ">
-			<div class="level is-mobile has-text-white">
-				<div class="level-item has-centered-text">
-					<div>
-						<p class="title is-6 has-text-white"><%= current_user.followed_users.count %></p>
-						<p class="heading">Following</p>
-					</div>
-				</div>
-				<div class="level-item has-centered-text">
-					<div>
-						<p class="title is-6 has-text-white"><%= current_user.users_following.count %></p>
-						<p class="heading">Followers</p>
-					</div>
-				</div>
-			</div>
+		
+		<div class="prof-name">
+			<%= current_user.full_name.upcase %>
 		</div>
+	</article>
 
-	</nav>
-	<div class=" mt-4 ">
-		<span class="icon"><i class="fas fa-home" aria-hidden="true"></i></span> <%= link_to "Home", root_path, class: "has-text-grey-light" %> <br>
-		<span class="icon"><i class="fas fa-user" aria-hidden="true"></i></span><%= link_to "Profile", user_path(current_user), class: "has-text-grey" %>
+	<div class="follow">
+		<div class="folw">
+			<p class="numb"><%= current_user.followed_users.count %></p>
+			<p class="follow-text">Following</p>
+		</div>
+		<div class="folw">
+			<p class="numb"><%= current_user.users_following.count %></p>
+			<p class="follow-text">Followers</p>
+		</div>
+	</div>
+
+	<div>
+		<ul class="side-nav">
+			<li><a href="#">HOME</a></li>
+			<li><a href="#">CONNECT</a></li>
+			<li><a href="#">DISCOVER</a></li>
+			<li><a href="#">PROFILE</a></li>
+			<li><a href="#">STATISTICS</a></li>
+		</ul>
 	</div>
 </div>
+<!-- 	<div class=" mt-4 ">
+		<span class="icon"><i class="fas fa-home" aria-hidden="true"></i></span> <%#= link_to "Home", root_path, class: "has-text-grey-light" %> <br>
+		<span class="icon"><i class="fas fa-user" aria-hidden="true"></i></span><%#= link_to "Profile", user_path(current_user), class: "has-text-grey" %>
+	</div> -->

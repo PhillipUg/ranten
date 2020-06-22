@@ -11,9 +11,13 @@
 		</div>
 	</article>
 	<% end %>
-	<p class="panel-heading">
-		Rants
-	</p>
+	<div class="tabs">
+  <ul>
+    <li class="is-active"><a>RANTS</a></li>
+    <li><a>PHOTOS</a></li>
+    <li><a>VIDEOS</a></li>
+  </ul>
+</div>
 	<% @rants.each do |rant| %>
 	<div class="box">
 		<article class="media">
