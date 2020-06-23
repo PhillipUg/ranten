@@ -9,9 +9,9 @@ module ApplicationHelper
 
 	def default_cover(user)
 		if user.cover_image.attached?
-			image_tag(user.cover_image, width: 720, height: 240)
+			image_tag(user.cover_image, width: 720, height: 240, class: "cover")
 		else
-			image_tag("https://bulma.io/images/placeholders/720x240.png")
+			image_tag("https://bulma.io/images/placeholders/720x240.png", class: "cover")
 		end
 	end
 end
