@@ -1,24 +1,19 @@
-<div class="column">
-	<nav class="panel">
-		<p class="panel-heading">Who to Follow</p>
+<div class="column side">
+
+	<p class="head">WHO TO FOLLOW</p>
+
 		<% @users.each do |user| %>
 		<% if user.id != current_user.id && !current_user.followed_users.include?(user)%>
-		<div class="panel-block">
-			<article class="media">
-				<div class="media-left">
+			<article class="user">
+				<div class="">
 					<%= default_avatar(user) %>
 				</div>
-				<div class="media-content">
-					<div class="content">
-						<p>
-							<strong><%= link_to "#{user.full_name.capitalize}", user_path(user.id) %></strong><br>
-							<small>@<%= user.username %></small>
-						</p>
-					</div>
+				<div class="">
+					<strong><%= link_to "#{user.full_name.capitalize}", user_path(user.id), class: "name" %></strong><br>
+					<small>@<%= user.username %></small>
 				</div>
 			</article>
-		</div>
 		<% end %>
 		<% end %>
-	</nav>
+
 </div>

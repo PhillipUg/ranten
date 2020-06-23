@@ -1,8 +1,5 @@
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-   <!--  <a class="image is-64x64" href="/">
-      <img src="https://api.adorable.io/avatars/112/abott@adorable.png" class="logo ">
-    </a> -->
     <a href="/" class="navbar-item logo-name">
       <strong>RANTEN</strong>
     </a>
@@ -10,6 +7,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
+      <% if current_user %>
       <div class="navbar-item">
         <span class="icon">
           <i class="fas fa-pen"></i>
@@ -25,6 +23,7 @@
           <i class="fas fa-search"></i>
         </span>
         </div>
+        <% end %>
         <div class="navbar-item">
             <div class="dropdown is-hoverable is-right">
               <div class="dropdown-trigger">
