@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:new, :create]
+  before_action :set_user, only: %i[show edit update destroy]
+  before_action :authorize, except: %i[new create]
 
   # GET /users
   def index
-    @users = User.all.order("created_at DESC")
+    @users = User.all.order('created_at DESC')
   end
 
   # GET /users/1
@@ -19,19 +19,18 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   def follow
     @following = Following.new(follower_id: current_user.id, followed_id: params[:user_id])
     @following.save
-    redirect_to user_path(params[:user_id]), notice: "Started following"
+    redirect_to user_path(params[:user_id]), notice: 'Started following'
   end
 
   def unfollow
     @following = Following.find_by(follower_id: current_user.id, followed_id: params[:user_id])
     @following.destroy
-    redirect_to user_path(params[:user_id]), notice: "Unfollowed User"
+    redirect_to user_path(params[:user_id]), notice: 'Unfollowed User'
   end
 
   # POST /users
@@ -61,13 +60,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:username, :full_name, :photo, :cover_image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
   end
+
+  # Only allow a trusted parameter "white list" through.
+  def user_params
+    params.require(:user).permit(:username, :full_name, :photo, :cover_image)
+  end
+end

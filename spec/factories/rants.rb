@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :rant do
     author_id { 1 }
-    content { "MyText" }
+    content { 'MyText' }
   end
 end

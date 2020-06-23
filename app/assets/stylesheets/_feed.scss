@@ -1,48 +1,53 @@
 .feed {
-	overflow: auto;
-	height: 100vh;
-	scrollbar-width: none;
-	&::-webkit-scrollbar { 
-		display: none;  /* Safari and Chrome */
-	}
+  overflow: auto;
+  height: 100vh;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
 }
 
 .box-form {
-	// border: 1px solid gray;
-	padding: 20px;
-	margin-bottom: 30px;
-	background-color: #fff;
+  // border: 1px solid gray;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
 }
 
 .boxed {
-	// border: 1px solid gray;
-	height: 100vh;
-	margin-bottom: 200px;
-	padding: 20px;
-	background-color: #fff;
-
+  // border: 1px solid gray;
+  height: 100vh;
+  margin-bottom: 200px;
+  padding: 20px;
+  background-color: #fff;
 }
+
 .rant {
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	padding: 15px 0;
-		border-bottom: 1px solid #eee;
-		div {
-		padding-right: 15px;
-			// height: 20px;
-		}
-	}
-	.rant-content {
-		width: 100%;
-		.small {
-			display: inline-block;
-			margin-left: 60%;
-		}
-	}
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+
+  div {
+    padding-right: 15px;
+    // height: 20px;
+  }
+}
+
+.rant-content {
+  width: 100%;
+
+  .small {
+    display: inline-block;
+    margin-left: 60%;
+  }
+}
+
 .tabs {
-	a {
-		padding: 10px;
-		font-size: 18px;
-	}
+  a {
+    padding: 10px;
+    font-size: 18px;
+  }
 }

@@ -1,16 +1,15 @@
 class RantsController < ApplicationController
-  before_action :set_rant, only: [:show, :edit, :update, :destroy]
+  before_action :set_rant, only: %i[show edit update destroy]
   before_action :authorize
 
   # GET /rants
   def index
-    @rants = Rant.all.order("created_at DESC")
-    @users = User.all.order("created_at DESC")
+    @rants = Rant.all.order('created_at DESC')
+    @users = User.all.order('created_at DESC')
   end
 
   # GET /rants/1
-  def show
-  end
+  def show; end
 
   # GET /rants/new
   def new
@@ -18,8 +17,7 @@ class RantsController < ApplicationController
   end
 
   # GET /rants/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /rants
   def create
@@ -48,13 +46,14 @@ class RantsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rant
-      @rant = Rant.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def rant_params
-      params.permit(:content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rant
+    @rant = Rant.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def rant_params
+    params.permit(:content)
+  end
 end

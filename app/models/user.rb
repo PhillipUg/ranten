@@ -1,20 +1,20 @@
 class User < ApplicationRecord
-	has_one_attached :photo
-	has_one_attached :cover_image
+  has_one_attached :photo
+  has_one_attached :cover_image
 
-	has_many :rants, foreign_key: :author_id, dependent: :destroy
-	
-	has_many :followings, foreign_key: :follower_id
-	has_many :followers, class_name: :Following, foreign_key: :followed_id
+  has_many :rants, foreign_key: :author_id, dependent: :destroy
 
-	validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 50}
-	validates :full_name, presence: true
+  has_many :followings, foreign_key: :follower_id
+  has_many :followers, class_name: :Following, foreign_key: :followed_id
 
-	def followed_users
-		followings.map {|following| following.followed }.compact
-	end
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }
+  validates :full_name, presence: true
 
-	def users_following
-		followers.map {|following| following.follower }.compact
-	end
+  def followed_users
+    followings.map(&:followed).compact
+  end
+
+  def users_following
+    followers.map(&:follower).compact
+  end
 end
