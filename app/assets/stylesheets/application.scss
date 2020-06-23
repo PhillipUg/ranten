@@ -16,46 +16,62 @@
 
  $panel-block-color: white;
 	
-
+	// @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
  @import "bulma";
  @import '_profile';
  @import '_nav';
+ @import '_feed';
+ @import '_who-to-follow';
+ @import '_user-feed';
 
+
+* {
+ 	box-sizing: border-box;
+ 	margin: 0;
+ 	padding: 0;
+}
 
  html {
- 	overflow: hidden;
+ 	overflow: hidden; 	
  }
 
- .is-fullheight {
- 	height: 100vh;
- 	background-color: #213246;
- }
+ // .is-fullheight {
+ // 	height: 100vh;
+ // 	background-color: #213246;
+ // }
 
- .logo {
- 	border-radius: 20%;
- 	margin-top: 7px;
- 	margin-left: 7px;
- 	margin-right: 10px;
- }
+ // .logo {
+ // 	border-radius: 20%;
+ // 	margin-top: 7px;
+ // 	margin-left: 7px;
+ // 	margin-right: 10px;
+ // }
 
 
  .avatar {
  	border-radius: 20%;
- 	display: flex;
- 	justify-content: middle;
- 	align-items: center;
- }
-
- .is-scrollable {
- 	overflow: auto;
- 	height: 100vh;
- 	scrollbar-width: none;
- 	&::-webkit-scrollbar { 
- 		display: none;  /* Safari and Chrome */
- 	}
+ 	width: 64px;
+ 	// display: flex;
+ 	// justify-content: middle;
+ 	// align-items: center;
  }
 
  .navbar {
  	height: 80px;
  }
 
+.bord {
+	display: flex;
+	border: 1px solid gray;
+	margin: 0;
+	background-color: #F5F6F8;
+	height: 100vh;
+}
+
+ .logo-name {
+ 	font-family: 'Rock Salt', cursive;
+ 	font-size: 30px;
+ 	color: white;
+ 	// padding: 0;
+ 	margin-left: 30px;
+ }
