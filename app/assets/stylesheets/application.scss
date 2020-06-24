@@ -34,17 +34,21 @@ html {
   overflow: hidden;
 }
 
-// .is-fullheight {
-// 	height: 100vh;
-// 	background-color: #213246;
-// }
+#notice {
+  border: 1px solid green;
+  background-color: #dcfdd7;
+  // text-align: center;
+  // position: absolute;
+  // width: 100%;
+}
 
-// .logo {
-// 	border-radius: 20%;
-// 	margin-top: 7px;
-// 	margin-left: 7px;
-// 	margin-right: 10px;
-// }
+#alert {
+  border: 1px solid red;
+  background-color: #ffcccb;
+  // text-align: center;
+  // position: absolute;
+  // width: 100%;
+}
 
 .avatar {
   border-radius: 20%;

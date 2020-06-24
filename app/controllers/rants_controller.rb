@@ -5,7 +5,7 @@ class RantsController < ApplicationController
   # GET /rants
   def index
     @rants = Rant.all.order('created_at DESC')
-    @users = User.all.order('created_at DESC')
+    @users = User.includes(:photo_attachment).all.order('created_at DESC')
   end
 
   # GET /rants/1
@@ -26,7 +26,8 @@ class RantsController < ApplicationController
     if @rant.save
       redirect_to rants_url, notice: 'Rant was successfully created.'
     else
-      render :new
+      flash[:alert] = "Content can't be blank"
+      redirect_to :rants
     end
   end
 

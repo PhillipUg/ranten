@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to rants_path, notice: 'Successfully Logged In'
     else
-      flash.now.alert = 'Incorrect Username. Try again.'
+      flash.now[:alert] = 'Incorrect Username. Try again.'
       render :new
     end
   end

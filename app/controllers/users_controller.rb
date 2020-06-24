@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def unfollow
     @following = Following.find_by(follower_id: current_user.id, followed_id: params[:user_id])
     @following.destroy
-    redirect_to user_path(params[:user_id]), notice: 'Unfollowed User'
+    redirect_to user_path(params[:user_id]), alert: 'Unfollowed User'
   end
 
   # POST /users
