@@ -38,7 +38,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 3.32', '>= 3.32.2'
   gem 'factory_bot_rails', '~> 5.2'
-  gem 'hirb', '~> 0.7.3'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
 end
 
@@ -53,7 +52,6 @@ end
 
 group :test do
   gem 'database_cleaner-active_record'
-  gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.3'
 end
