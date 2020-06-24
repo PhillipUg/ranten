@@ -13,19 +13,43 @@
 
 <body>
   <div class="columns is-gapless">
-  <% if current_user %>
+    <% if current_user %>
 
     <%= render 'users/profile' %>
-    <div class="column has-background-white">
+    <div class="column">
       <%= render 'layouts/navigation' %>
+
+      <% if notice.present? %>
+      <div class="notice" id="notice">
+        <p> <%= notice %> </p>
+      </div>
+      <% end %>
+      <% if alert.present? %>
+      <div class="alert" id="alert">
+        <p> <%= alert %> </p>
+      </div>
+      <% end %>
+
       <%= yield %>
     </div>
-  <% else %>
+    <% else %>
     <div class="column has-background-white">
       <%= render 'layouts/navigation' %>
+
+      <% if notice.present? %>
+      <div class="notice" id="notice">
+        <p> <%= notice %> </p>
+      </div>
+      <% end %>
+      <% if alert.present? %>
+      <div class="alert" id='alert'>
+        <p> <%= alert %> </p>
+      </div>
+      <% end %>
+
       <%= yield %>
     </div>
-  <% end %>
+    <% end %>
   </div>
 
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>

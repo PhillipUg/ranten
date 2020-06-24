@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="user-page">
 	<div class="user-feed">
@@ -38,11 +38,11 @@
 
 			<% if current_user != @user %>
 			<% if @user.users_following.include?(current_user) %>
-			<%= link_to user_unfollow_path(@user.id), method: "DELETE" do %>
+			<%= link_to user_unfollow_path(@user.id), method: "DELETE", class: "follow-ex" do %>
 			<div class="icon"><i class="fas fa-times"></i></div>
 			<% end %>
 			<% else %>
-			<%= link_to user_follow_path(@user.id), method: "POST" do %>
+			<%= link_to user_follow_path(@user.id), method: "POST", class: "follow-plus" do %>
 			<div class="icon"><i class="fas fa-plus"></i></div>
 			<% end %>
 			<% end %>
