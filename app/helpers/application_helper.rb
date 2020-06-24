@@ -3,7 +3,7 @@ module ApplicationHelper
     if user.photo.attached?
       image_tag(user.photo, width: 64, height: 64, class: 'avatar')
     else
-      image_tag('https://bulma.io/images/placeholders/64x64.png', class: 'avatar')
+      image_tag('http://www.gravatar.com/avatar/?d=retro', class: 'avatar')
     end
   end
 
