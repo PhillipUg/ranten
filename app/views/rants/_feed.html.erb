@@ -29,10 +29,8 @@
 				<% if current_user.id == rant.author_id %>
 				<nav class="level">
 					<div class="level-left is-mobile">
-						<%= link_to rant, class: "level-item" do %>
-						<span class="icon"><i class="far fa-heart" aria-hidden="true"></i></span>
-						<% end %>
-
+						<%= like_or_dislike_btn(rant) %>
+						<small class="like-count"><%= rant.likes.count %></small>
 						<%= link_to rant, method: :delete, data: { confirm: "Are you sure you want to delete this rant?"}, class: "level-item" do %>
 						<span class="icon"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
 						<% end %>
@@ -40,10 +38,9 @@
 				</nav>
 				<% else %>
 				<div class="level-left level-items">
-				<%= link_to rant, class: "level-item" do %>
-				<span class="icon"><i class="far fa-heart" aria-hidden="true"></i></span>
-				<% end %>
-				<span class="icon"><i class="fa fa-retweet" aria-hidden="true"></i></span>
+					<%= like_or_dislike_btn(rant) %>
+					<small class="like-count"><%= rant.likes.count %></small>
+					<span class="icon"><i class="fa fa-retweet" aria-hidden="true"></i></span>
 				</div>
 				<% end %>
 			</article>

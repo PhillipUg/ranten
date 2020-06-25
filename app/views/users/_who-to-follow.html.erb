@@ -3,7 +3,7 @@
 	<p class="head">WHO TO FOLLOW</p>
 
 		<% @users.each do |user| %>
-		<% if user.id != current_user.id && !current_user.followed_users.include?(user)%>
+		<% if user != current_user && !current_user.followed_users.include?(user)%>
 			<article class="user">
 				<div class="">
 					<%= default_avatar(user) %>

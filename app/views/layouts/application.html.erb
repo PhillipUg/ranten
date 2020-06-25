@@ -15,22 +15,18 @@
 <body>
   <div class="columns is-gapless">
     <% if current_user %>
-
     <%= render 'users/profile' %>
     <div class="column">
       <%= render 'layouts/navigation' %>
+      <div class="notices">
+        <% if notice.present? %>
+        <p class="notice" id="notice"> <%= notice %> </p>
+        <% end %>
 
-      <% if notice.present? %>
-      <div class="notice" id="notice">
-        <p> <%= notice %> </p>
+        <% if alert.present? %>
+        <p class="alert" id="alert"> <%= alert %> </p>
+        <% end %>
       </div>
-      <% end %>
-      <% if alert.present? %>
-      <div class="alert" id="alert">
-        <p> <%= alert %> </p>
-      </div>
-      <% end %>
-
       <%= yield %>
     </div>
     <% else %>

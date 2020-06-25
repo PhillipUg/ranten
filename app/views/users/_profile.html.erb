@@ -23,14 +23,10 @@
 	<div>
 		<ul class="side-nav">
 			<li><a href="/"><i class="fas fa-home" aria-hidden="true"></i> <%= link_to "HOME", root_path%></a></li>
+			<li><a href="#"><i class="fas fa-user" aria-hidden="true"></i> <%= link_to "PROFILE", user_path(current_user)%></a></li>
 			<li><a href="#"><i class="fas fa-at" aria-hidden="true"></i> CONNECT</a></li>
 			<li><a href="#"><i class="fas fa-hashtag" aria-hidden="true"></i> DISCOVER</a></li>
-			<li><a href="#"><i class="fas fa-user" aria-hidden="true"></i> <%= link_to "PROFILE", user_path(current_user)%></a></li>
 			<li><a href="#"><i class="fas fa-chart-pie" aria-hidden="true"></i> STATISTICS</a></li>
 		</ul>
 	</div>
 </div>
-<!-- 	<div class=" mt-4 ">
-		<span class="icon"><i class="fas fa-home" aria-hidden="true"></i></span> <%#= link_to "Home", root_path, class: "has-text-grey-light" %> <br>
-		<span class="icon"><i class="fas fa-user" aria-hidden="true"></i></span><%#= link_to "Profile", user_path(current_user), class: "has-text-grey" %>
-	</div> -->
