@@ -33,24 +33,23 @@ html {
 
 .notices {
   position: relative;
-  }
+}
 
-  #notice {
-    border: 1px solid green;
-    background-color: #dcfdd7;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-  }
+#notice {
+  border: 1px solid green;
+  background-color: #dcfdd7;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
 
-  #alert {
-    border: 1px solid red;
-    background-color: #ffcccb;
-    width: 100%;
-    z-index: 1;
-    position: absolute;
-  }
-
+#alert {
+  border: 1px solid red;
+  background-color: #ffcccb;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+}
 
 .avatar {
   border-radius: 20%;
