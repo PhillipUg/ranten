@@ -70,7 +70,7 @@ This project is intended to be an MVP so its not at full functionality. It is al
 ## Installation
 
 To use this app locally, this is what you need to:
-* Have ruby installed in your computer
+
 * [Download](https://github.com/PhillipUg/ranten/archive/master.zip) or clone this repo:
   - Clone with SSH:
   ```
@@ -82,7 +82,7 @@ To use this app locally, this is what you need to:
   ```
 * `cd` into `ranten` directory and run `bundle install`
 * Run `rails db:migrate` & `rails db:seed` to create and populate the database with sample data
-* Finally, run `rails server` and go to `http://localhost:3000/` in your browser to see the app.
+* Finally, run `rails server` and open `http://localhost:3000/` in your browser.
  
 
 ### Built With
@@ -107,7 +107,7 @@ bundle exec rspec
 <!-- LIVE VERSION -->
 ## Live version
 
-You can try it live [here](ranten-phillipug.herokuapp.com/)
+You can try it live [here](https://ranten-phillipug.herokuapp.com/)
 
 ## Video Demo
 In this [video demo](https://www.loom.com/share/9ba92a37201e43d981c3675af86dc5ad) i summarily take you through how i built this application
@@ -117,7 +117,7 @@ In this [video demo](https://www.loom.com/share/9ba92a37201e43d981c3675af86dc5ad
 
 👤 **Phillip Musiime**
 
-- LinkedIn: [Phillip Musiime](https://www.linkedin.com/in/phillip-musiime-74657019a/)
+- LinkedIn: [Phillip Musiime](https://www.linkedin.com/in/phillip-musiime/)
 - GitHub: [PhillipUg](https://github.com/PhillipUg)
 - Twitter: [@Phillip_Ug](https://twitter.com/Phillip_Ug)
 - E-mail: phillipmusiime@gmail.com
