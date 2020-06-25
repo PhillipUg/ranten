@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def default_avatar(user)
     if user.photo.attached?
       image_tag(user.photo, width: 64, height: 64, class: 'avatar')
@@ -7,11 +8,13 @@ module ApplicationHelper
     end
   end
 
+
   def default_cover(user)
     if user.cover_image.attached?
-      image_tag(user.cover_image, width: 720, height: 240, class: 'cover')
+      image_tag(user.cover_image, width: 720, height: 240, class: 'cover-photo')
     else
-      image_tag('https://bulma.io/images/placeholders/720x240.png', class: 'cover')
+      image_tag('https://picsum.photos/id/0/720/240', class: 'cover-photo')
     end
   end
+  
 end
