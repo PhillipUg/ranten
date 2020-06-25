@@ -4,12 +4,11 @@
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
+    display: none;
   }
 }
 
 .box-form {
-  // border: 1px solid gray;
   padding: 20px;
   margin-bottom: 30px;
   background-color: #fff;
@@ -31,7 +30,6 @@
 
   div {
     padding-right: 15px;
-    // height: 20px;
   }
 
   .level-items,

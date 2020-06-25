@@ -1,12 +1,10 @@
 .user-page {
-  // border: 1px solid red;
   display: flex;
   height: 100vh;
   background-color: #f5f6f8;
 }
 
 .user-feed {
-  // border: 1px solid red;
   flex: 2;
 
   .cover-photo {
@@ -19,7 +17,7 @@
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
+    display: none; 
   }
 
   .tabs {
@@ -46,12 +44,10 @@
 .user-prof {
   flex: 1;
   overflow: auto;
-  // height: 100vh;
-  // border-left: 1px solid #ddd;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
+    display: none;  
   }
 
   .icon {
@@ -86,7 +82,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  // height: 15%;
 }
 
 .user-folw {
