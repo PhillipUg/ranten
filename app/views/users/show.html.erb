@@ -90,8 +90,8 @@
 					<strong><%= link_to "#{follower.full_name.capitalize}", user_path(follower.id), class: "name" %></strong><br>
 					<small>@<%= follower.username %></small>
 				</div>
-				<% unless current_user || current_user.followed_users.include?(follower) %>
-				<%= link_to user_follow_path(follower.id), method: "POST" do %>
+				<% if !current_user.followed_users.include?(follower) && current_user != follower %>
+				<%= link_to user_follow_path(follower.id), method: "POST", class: "follow-er" do %>
 				<div class="icon"><i class="fas fa-plus"></i></div>
 				<% end %>
 				<% end %>
