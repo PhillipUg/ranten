@@ -16,8 +16,6 @@
 }
 
 .boxed {
-  // border: 1px solid gray;
-  height: 100vh;
   margin-bottom: 200px;
   padding: 20px;
   background-color: #fff;
@@ -38,10 +36,13 @@
 
 .rant-content {
   width: 100%;
+    position: relative;
 
   .small {
     display: inline-block;
     margin-left: 60%;
+    position: absolute;
+    right: 0;
   }
 }
 

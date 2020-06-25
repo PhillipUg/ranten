@@ -59,7 +59,7 @@ html {
 }
 
 .navbar {
-  height: 80px;
+  height: 60px;
 }
 
 .bord {
@@ -76,4 +76,12 @@ html {
   color: white;
   // padding: 0;
   margin-left: 30px;
+}
+
+#content {
+  font-size: 18px;
+  height: 100px;
+  width: 100%;
+  padding: 20px;
+  resize: none;
 }
