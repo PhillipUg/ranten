@@ -107,7 +107,7 @@ bundle exec rspec
 <!-- LIVE VERSION -->
 ## Live version
 
-You can try it live [here](ranten-phillipug.herokuapp.com/)
+You can try it live [here](https://ranten-phillipug.herokuapp.com/)
 
 ## Video Demo
 In this [video demo](https://www.loom.com/share/9ba92a37201e43d981c3675af86dc5ad) i summarily take you through how i built this application
