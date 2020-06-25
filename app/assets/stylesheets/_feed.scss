@@ -27,10 +27,19 @@
   align-items: flex-start;
   padding: 15px 0;
   border-bottom: 1px solid #eee;
-
+  position: relative;
   div {
     padding-right: 15px;
     // height: 20px;
+  }
+  .level-items, .level {
+    position: absolute;
+    bottom: 5px;
+    left: 10%;
+    .icon {
+      color: #3298DC;
+      font-size: 14px;
+    }
   }
 }
 
