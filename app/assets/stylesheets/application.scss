@@ -14,17 +14,17 @@
  *= require_self
  */
 
- $panel-block-color: white;
+$panel-block-color: white;
 
- // @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
- @import "bulma";
- @import '_profile';
- @import '_nav';
- @import '_feed';
- @import '_who-to-follow';
- @import '_user-feed';
+// @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import "bulma";
+@import '_profile';
+@import '_nav';
+@import '_feed';
+@import '_who-to-follow';
+@import '_user-feed';
 
- * {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,6 +36,7 @@ html {
 
 .notices {
   position: relative;
+
   #notice {
     border: 1px solid green;
     background-color: #dcfdd7;

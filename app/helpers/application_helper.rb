@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def default_avatar(user)
     if user.photo.attached?
       image_tag(user.photo, width: 64, height: 64, class: 'avatar')
@@ -7,7 +6,6 @@ module ApplicationHelper
       image_tag('http://www.gravatar.com/avatar/?d=retro', class: 'avatar')
     end
   end
-
 
   def default_cover(user)
     if user.cover_image.attached?
@@ -17,6 +15,7 @@ module ApplicationHelper
     end
   end
 
+  # rubocop:disable Layout/LineLength
   def like_or_dislike_btn(rant)
     like = Like.find_by(rant: rant, user: current_user)
     if like
@@ -27,24 +26,23 @@ module ApplicationHelper
   end
 
   def follow_plus(user)
-    if user != current_user
-      if user.users_following.include?(current_user)
-        link_to('<div class="icon"><i class="fas fa-times"></i></div>'.html_safe, user_unfollow_path(user.id), method: "DELETE", class: "follow-ex")
-      else
-        link_to('<div class="icon"><i class="fas fa-plus"></i></div>'.html_safe, user_follow_path(user.id), method: "POST", class: "follow-plus")
-      end
-    end   
+    return if user == current_user
+
+    if user.users_following.include?(current_user)
+      link_to('<div class="icon"><i class="fas fa-times"></i></div>'.html_safe, user_unfollow_path(user.id), method: 'DELETE', class: 'follow-ex')
+    else
+      link_to('<div class="icon"><i class="fas fa-plus"></i></div>'.html_safe, user_follow_path(user.id), method: 'POST', class: 'follow-plus')
+    end
   end
 
   def list_icon(user)
-    if user != current_user
-      '<div class="icon"><i class="fas fa-list-ul"></i></div>'.html_safe
-    end    
+    '<div class="icon"><i class="fas fa-list-ul"></i></div>'.html_safe if user != current_user
   end
 
   def follow_plus2(user)
-    if !current_user.followed_users.include?(user) && current_user != user
-      link_to('<div class="icon"><i class="fas fa-plus"></i></div>'.html_safe, user_follow_path(user.id), method: "POST", class: "follow-er")
-    end
+    return unless !current_user.followed_users.include?(user) && current_user != user
+
+    link_to('<div class="icon"><i class="fas fa-plus"></i></div>'.html_safe, user_follow_path(user.id), method: 'POST', class: 'follow-er')
   end
+  # rubocop:enable Layout/LineLength
 end

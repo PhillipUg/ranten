@@ -20,7 +20,7 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe '#default_cover' do
     it "returns default cover image when a user doesn't attach one" do
-      expect(helper.default_cover(user2)).to eq(image_tag('https://picsum.photos/id/0/720/240', class: 'cover-photo')) # rubocop:disable Layout/LineLength
+      expect(helper.default_cover(user2)).to eq(image_tag('https://picsum.photos/id/0/720/240', class: 'cover-photo'))
     end
   end
 end

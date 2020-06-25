@@ -28,16 +28,20 @@
   padding: 15px 0;
   border-bottom: 1px solid #eee;
   position: relative;
+
   div {
     padding-right: 15px;
     // height: 20px;
   }
-  .level-items, .level {
+
+  .level-items,
+  .level {
     position: absolute;
     bottom: 5px;
     left: 10%;
+
     .icon {
-      color: #3298DC;
+      color: #3298dc;
       font-size: 14px;
     }
   }
@@ -45,7 +49,7 @@
 
 .rant-content {
   width: 100%;
-    position: relative;
+  position: relative;
 
   .small {
     display: inline-block;

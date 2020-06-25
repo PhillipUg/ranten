@@ -1,4 +1,4 @@
- .user-page {
+.user-page {
   // border: 1px solid red;
   display: flex;
   height: 100vh;
@@ -34,6 +34,7 @@
   padding: 20px;
   margin-bottom: 100px;
   position: relative;
+
   .small {
     display: inline-block;
     margin-left: 60%;
@@ -60,6 +61,7 @@
     height: 50px;
     border-radius: 50%;
     margin: 0 20px;
+
     .fa-times {
       color: red;
     }
@@ -119,7 +121,8 @@
     width: 35px;
     height: 40px;
   }
-   .follow-er {
+
+  .follow-er {
     position: absolute;
     right: 20px;
   }
