@@ -10,5 +10,7 @@ Rails.application.routes.draw do
  		delete 'unfollow', to: 'users#unfollow', as: 'unfollow'
   end
 
-  resources :rants
+  resources :rants do
+  	resources :likes, only: [:create, :destroy]
+  end
 end
