@@ -25,7 +25,7 @@ A safe place for devs to come and rant about whatever!.
 <br />
 <p align="center">
   <a href="https://github.com/PhillipUg/ranten">
-    <img src="images/ranten.jpeg" alt="Logo" width="80" height="80">
+    <img src="app/assets/images/ranten.jpeg" alt="Logo" width="80" height="80">
   </a>
 
   <h1 align="center">Ranten</h1>
@@ -59,9 +59,8 @@ A safe place for devs to come and rant about whatever!.
 This project is intended to be an MVP so its not at full functionality. It is also intended to be a twitter redesign. I have implemented the following feature:
 * Users can create accounts and upload an avatar & cover photo
 * Users can login with their usernames
-* Users can create rants
+* Users can create and delete rants
 * Users like and dislike rants
-* Users can delete and edit rants
 * Users can follow other users that they arem't already following
 * Users can unfollow users that they are following
 
@@ -103,7 +102,6 @@ This project was built using these technologies.
 To run tests 
 ```
 bundle exec rspec
-
 ```
 
 <!-- LIVE VERSION -->
