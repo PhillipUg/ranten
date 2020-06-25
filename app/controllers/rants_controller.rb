@@ -43,7 +43,7 @@ class RantsController < ApplicationController
   # DELETE /rants/1
   def destroy
     @rant.destroy
-    redirect_to rants_url, notice: 'Rant was successfully destroyed.'
+    redirect_to rants_url, alert: 'Rant deleted!'
   end
 
   private
