@@ -4,8 +4,8 @@ class RantsController < ApplicationController
 
   # GET /rants
   def index
-    @rants = Rant.all.order('created_at DESC')
-    @users = User.includes(:photo_attachment).all.order('created_at DESC')
+    @rants = Rant.all.order('created_at DESC').includes(:author)
+    @users = User.with_attached_photo.all.order('created_at DESC')
   end
 
   # GET /rants/1

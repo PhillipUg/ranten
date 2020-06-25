@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all.order('created_at DESC')
+    @users = User.with_attached_photo.all.order('created_at DESC')
   end
 
   # GET /users/1
