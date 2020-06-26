@@ -11,11 +11,11 @@
 
 	<div class="follow">
 		<div class="folw">
-			<p class="numb"><%= current_user.followed_users.count %></p>
+			<p class="numb"><%= folowed_users(current_user).count %></p>
 			<p class="follow-text">Following</p>
 		</div>
 		<div class="folw">
-			<p class="numb"><%= current_user.users_following.count %></p>
+			<p class="numb"><%= users_folowing(current_user).count %></p>
 			<p class="follow-text">Followers</p>
 		</div>
 	</div>

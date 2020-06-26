@@ -13,7 +13,7 @@
 		</div>
 
 		<div class="user-rants">
-			<% @user.rants.each do |rant| %>
+			<% @user.rants.eager_load(:author).each do |rant| %>
 			<article class="media">
 				<div class="media-left">
 					<%= default_avatar(rant.author) %>
@@ -51,11 +51,11 @@
 			</div>
 
 			<div>
-				<p class="count"><%= @user.followed_users.count %></p>
+				<p class="count"><%= @followed_users.count %></p>
 				<p class="">Following</p>
 			</div>
 			<div>
-				<p class="count"><%= @user.users_following.count %></p>
+				<p class="count"><%= @users_following.count %></p>
 				<p class="">Followers</p>
 			</div>
 		</div>
