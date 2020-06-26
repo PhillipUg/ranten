@@ -11,11 +11,11 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }
   validates :full_name, presence: true
 
-  def followed_users
-    followings.map(&:followed).compact
+  def self.followed_users(user)
+    User.joins(:followers).where('follower_id = ?', user.id)
   end
 
-  def users_following
-    followers.map(&:follower).compact
+  def self.users_following(user)
+    User.joins(:followings).where('followed_id = ?', user.id)
   end
 end
