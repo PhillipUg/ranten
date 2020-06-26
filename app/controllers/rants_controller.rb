@@ -3,8 +3,9 @@ class RantsController < ApplicationController
   before_action :authorize
 
   def index
-    @users = User.includes([:photo_attachment]).all.order('created_at DESC')
-    @rants = Rant.all.order('created_at DESC').includes(:author)
+    @users = User.includes(:photo_attachment).order('created_at DESC')
+    @rants = Rant.includes(:author).order('created_at DESC')
+    @current_followed_users = User.followed_users(current_user)
   end
 
   def new

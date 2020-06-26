@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_action :authorize, except: %i[new create]
 
   def show
-    @followed_users = @user.followed_users
-    @users_following = @user.users_following
+    @followed_users = User.followed_users(@user)
+    @users_following = User.users_following(@user)
   end
 
   def new
