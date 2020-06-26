@@ -28,7 +28,7 @@ module ApplicationHelper
   def follow_plus(user)
     return if user == current_user
 
-    if user.users_following.include?(current_user)
+    if @users_following.include?(current_user)
       link_to('<div class="icon"><i class="fas fa-times"></i></div>'.html_safe, user_unfollow_path(user.id), method: 'DELETE', class: 'follow-ex')
     else
       link_to('<div class="icon"><i class="fas fa-plus"></i></div>'.html_safe, user_follow_path(user.id), method: 'POST', class: 'follow-plus')
@@ -40,9 +40,17 @@ module ApplicationHelper
   end
 
   def follow_plus2(user)
-    return unless !current_user.followed_users.include?(user) && current_user != user
+    return unless !User.followed_users(current_user).include?(user) && current_user != user
 
     link_to('<div class="icon"><i class="fas fa-plus"></i></div>'.html_safe, user_follow_path(user.id), method: 'POST', class: 'follow-er')
+  end
+
+  def folowed_users(user)
+    User.followed_users(user)
+  end
+
+  def users_folowing(user)
+    User.users_following(user)
   end
   # rubocop:enable Layout/LineLength
 end
