@@ -3,13 +3,13 @@ class RantsController < ApplicationController
   before_action :authorize
 
   def index
-    @following_with_count = Following.group("followings.follower_id").count
-    @followers_with_count = Following.group("followings.followed_id").count
+    @following_with_count = Following.group('followings.follower_id').count
+    @followers_with_count = Following.group('followings.followed_id').count
     @likes = Like.includes(:rant, :user)
-    @likes_with_count = Like.group("likes.rant_id").count
+    @likes_with_count = Like.group('likes.rant_id').count
     @users = User.includes(:photo_attachment).order('created_at DESC')
     @rants = Rant.includes(:author).order('created_at DESC')
-    @current_followed_users = current_user.followings
+    @followingz = Following.includes(:follower, :followed)
   end
 
   def new

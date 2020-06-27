@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def show
     @users = User.includes(:photo_attachment).order('created_at DESC')
-    @following_with_count = Following.group("followings.follower_id").count
-    @followers_with_count = Following.group("followings.followed_id").count
-    @followingz =  Following.includes(:follower, :followed)
+    @following_with_count = Following.group('followings.follower_id').count
+    @followers_with_count = Following.group('followings.followed_id').count
+    @followingz = Following.includes(:follower, :followed)
   end
 
   def new
