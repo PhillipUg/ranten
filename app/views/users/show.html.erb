@@ -51,11 +51,11 @@
 			</div>
 
 			<div>
-				<p class="count"><%= @followed_users.count %></p>
+				<p class="count"><%= @following_with_count[@user.id] %></p>
 				<p class="">Following</p>
 			</div>
 			<div>
-				<p class="count"><%= @users_following.count %></p>
+				<p class="count"><%= @followers_with_count[@user.id] %></p>
 				<p class="">Followers</p>
 			</div>
 		</div>
@@ -64,7 +64,7 @@
 		
 		<p class="fol-by">FOLLOWED BY</p>
 		<div class="user-followers">
-			<% @users_following.each do |follower| %>
+			<% users_following(@user).each do |follower| %>
 
 			<article class="users">
 				<div>
