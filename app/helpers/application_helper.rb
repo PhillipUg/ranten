@@ -1,6 +1,6 @@
 module ApplicationHelper
   def default_avatar(user1)
-    result = @users.map {|user| user if user == user1}.compact
+    result = @users.map { |user| user if user == user1 }.compact
     if result.first.photo.attached?
       image_tag(result.first.photo, width: 64, height: 64, class: 'avatar')
     else
@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def default_cover(user1)
-    result = @users.map {|user| user if user == user1}.compact
+    result = @users.map { |user| user if user == user1 }.compact
     if result.first.cover_image.attached?
       image_tag(result.first.cover_image, width: 720, height: 240, class: 'cover-photo')
     else
@@ -19,12 +19,20 @@ module ApplicationHelper
 
   # rubocop:disable Layout/LineLength
   def like_or_dislike_btn(rantt)
-    result = @likes.map {|like| like if like.user == current_user && like.rant == rantt}.compact
+    result = @likes.map { |like| like if like.user == current_user && like.rant == rantt }.compact
     if !result.empty?
       link_to('<i class="fa fa-heart" aria-hidden="true"></i>'.html_safe, rant_like_path(id: result.first.id, rant_id: rantt.id), method: :delete, class: 'dislike')
     else
       link_to('<i class="far fa-heart" aria-hidden="true"></i>'.html_safe, rant_likes_path(rant_id: rantt.id), method: :post, class: 'like')
-    end 
+    end
+  end
+
+  def delete_or_retweet_btn(rant)
+    if current_user.id == rant.author_id
+      link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>'.html_safe, rant, method: :delete, data: { confirm: 'Are you sure you want to delete this rant?' }, class: 'level-item icon'
+    else
+      link_to '<i class="fa fa-retweet" aria-hidden="true"></i>'.html_safe, '#', class: 'icon'
+    end
   end
 
   def follow_plus(user)
@@ -48,11 +56,15 @@ module ApplicationHelper
   end
 
   def followed_users(user)
-    @followingz.map {|f| f.followed if f.follower == user}.compact
+    @followingz.map { |f| f.followed if f.follower == user }.compact
   end
 
   def users_following(user)
-    @followingz.map {|f| f.follower if f.followed == user}.compact
+    @followingz.map { |f| f.follower if f.followed == user }.compact
+  end
+
+  def who_to_follow
+    @users.map { |user| user if user != current_user && !followed_users(current_user).include?(user) }.compact
   end
   # rubocop:enable Layout/LineLength
 end
