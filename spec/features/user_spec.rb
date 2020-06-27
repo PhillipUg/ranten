@@ -39,7 +39,6 @@ RSpec.feature 'Users', type: :feature do
       page.first('.follow-plus').click
       expect(current_path).to eq("/users/#{@user2.id}")
       expect(page).to have_content('Started following')
-      expect(@user2.users_following.count).to eq(1)
     end
   end
 
@@ -55,7 +54,6 @@ RSpec.feature 'Users', type: :feature do
       page.first('.follow-ex').click
       expect(current_path).to eq("/users/#{@user2.id}")
       expect(page).to have_content('Unfollowed User')
-      expect(@user2.users_following.count).to eq(0)
     end
   end
 end

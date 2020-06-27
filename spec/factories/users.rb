@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     sequence(:id)
-    username { 'MyString' }
-    full_name { 'MyString' }
+    username { Faker::Name.middle_name }
+    full_name { Faker::Name.name }
   end
 end
