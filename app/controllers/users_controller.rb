@@ -3,8 +3,10 @@ class UsersController < ApplicationController
   before_action :authorize, except: %i[new create]
 
   def show
-    @followed_users = User.followed_users(@user)
-    @users_following = User.users_following(@user)
+    @users = User.includes(:photo_attachment).order('created_at DESC')
+    @following_with_count = Following.group("followings.follower_id").count
+    @followers_with_count = Following.group("followings.followed_id").count
+    @followingz =  Following.includes(:follower, :followed)
   end
 
   def new
