@@ -1,11 +1,6 @@
 .feed {
   overflow: auto;
   height: 100vh;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 .box-form {
@@ -22,22 +17,22 @@
 
 .rant {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   padding: 15px 0;
   border-bottom: 1px solid #eee;
-  position: relative;
 
-  div {
-    padding-right: 15px;
+  .rant-body {
+    flex: 8;
+    padding: 0 20px 0 0;
+  }
+
+  .vatar {
+    flex: 1;
+    width: 64px;
+    height: 64px;
   }
 
   .level-items,
   .level {
-    position: absolute;
-    bottom: 5px;
-    left: 10%;
-
     .icon {
       color: #3298dc;
       font-size: 14px;
