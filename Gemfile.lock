@@ -129,6 +129,7 @@ GEM
       os (>= 0.9, < 2.0)
       signet (~> 0.14)
     gravatar_image_tag (1.2.0)
+    hirb (0.7.3)
     httpclient (2.8.3)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
@@ -293,6 +294,7 @@ DEPENDENCIES
   faker
   google-cloud-storage (~> 1.26, >= 1.26.2)
   gravatar_image_tag (~> 1.2)
+  hirb
   listen (~> 3.2)
   pg (~> 1.2, >= 1.2.3)
   puma (~> 4.1)
