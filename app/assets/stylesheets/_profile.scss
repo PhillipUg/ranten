@@ -1,0 +1,59 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  background-color: #213246;
+}
+
+.side-nav li {
+  padding: 10px 10px 10px 20px;
+
+  a {
+    color: #667c91;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: #4c9bd6;
+
+    a {
+      color: white;
+    }
+  }
+}
+
+.follow {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #444;
+
+  .numb {
+    color: #b0bcc8;
+  }
+
+  .follow-text {
+    color: #667c91;
+  }
+
+  .folw {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+  }
+}
+
+.prof {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 0 20px;
+
+  .prof-name {
+    color: #667c91;
+    font-weight: 500;
+  }
+
+  .prof-img {
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="column side">
+
+	<p class="head">WHO TO FOLLOW</p>
+
+		<% who_to_follow.each do |user| %>
+			<article class="user">
+				<div class="">
+					<%= default_avatar(user) %>
+				</div>
+				<div class="">
+					<strong><%= link_to "#{user.full_name.capitalize}", user_path(user.id), class: "name" %></strong><br>
+					<small>@<%= user.username %></small>
+				</div>
+			</article>
+		<% end %>
+
+</div>

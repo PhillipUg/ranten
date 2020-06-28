@@ -1,0 +1,133 @@
+.user-page {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f6f8;
+}
+
+.user-feed {
+  flex: 2;
+
+  .cover-photo {
+    height: 40%;
+    width: 100%;
+  }
+
+  overflow: auto;
+  height: 100vh;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs {
+    a {
+      font-size: 15px;
+      padding: 15px;
+    }
+  }
+}
+
+.user-rants {
+  padding: 20px;
+  margin-bottom: 100px;
+  position: relative;
+
+  .small {
+    display: inline-block;
+    margin-left: 60%;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.user-prof {
+  flex: 1;
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .icon {
+    color: black;
+    border: 1px solid grey;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 20px;
+
+    .fa-times {
+      color: red;
+    }
+  }
+}
+
+.prof-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+
+  .avatar {
+    width: 30%;
+    border-radius: 50%;
+  }
+}
+
+.user-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.user-folw {
+  display: flex;
+
+  div {
+    border: 1px solid #ddd;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    .count {
+      font-weight: bold;
+    }
+  }
+}
+
+.fol-by {
+  padding: 18px;
+  border-bottom: 1px solid #ddd;
+}
+
+.users {
+  padding: 20px;
+  display: flex;
+  position: relative;
+
+  .icon {
+    width: 35px;
+    height: 40px;
+  }
+
+  .follow-er {
+    position: absolute;
+    right: 20px;
+  }
+
+  div {
+    padding-right: 20px;
+  }
+}
+
+.user-followers {
+  overflow: auto;
+  padding-bottom: 100px;
+}

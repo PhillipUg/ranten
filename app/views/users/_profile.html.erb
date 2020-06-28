@@ -1,0 +1,32 @@
+<div class="column is-2 profile">
+	<article class="prof">
+		<div class="prof-img">
+			<%= default_avatar(current_user) %>
+		</div>
+		
+		<div class="prof-name">
+			<%= current_user.full_name.upcase %>
+		</div>
+	</article>
+
+	<div class="follow">
+		<div class="folw">
+			<p class="numb"><%= @following_with_count[current_user.id] %></p>
+			<p class="follow-text">Following</p>
+		</div>
+		<div class="folw">
+			<p class="numb"><%= @followers_with_count[current_user.id] %></p>
+			<p class="follow-text">Followers</p>
+		</div>
+	</div>
+
+	<div>
+		<ul class="side-nav">
+			<li><a href="/"><i class="fas fa-home" aria-hidden="true"></i> <%= link_to "HOME", root_path%></a></li>
+			<li><a href="#"><i class="fas fa-user" aria-hidden="true"></i> <%= link_to "PROFILE", user_path(current_user)%></a></li>
+			<li><a href="#"><i class="fas fa-at" aria-hidden="true"></i> CONNECT</a></li>
+			<li><a href="#"><i class="fas fa-hashtag" aria-hidden="true"></i> DISCOVER</a></li>
+			<li><a href="#"><i class="fas fa-chart-pie" aria-hidden="true"></i> STATISTICS</a></li>
+		</ul>
+	</div>
+</div>

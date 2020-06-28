@@ -1,0 +1,45 @@
+
+
+<div class="column is-two-thirds ">
+
+	<div class="tabs">
+		<ul>
+			<li class="is-active"><a>RANTS</a></li>
+			<li><a>PHOTOS</a></li>
+			<li><a>VIDEOS</a></li>
+		</ul>
+	</div>
+	<section class="feed">
+		<article class="box-form">
+			<%= render 'rants/form' %>
+		</article>
+
+		<article class="boxed">
+
+			<% @rants.each do |rant| %>
+
+			<article class="rant">
+				<div class="vatar">
+					<%= default_avatar(rant.author) %>
+				</div>
+				<div class="rant-body">
+					<div class="rant-content">
+						<strong><%= link_to "#{rant.author.full_name.capitalize}", user_path(rant.author.id), class: "name" %></strong>
+						<small class="small"><%= time_ago_in_words(rant.created_at) %></small>
+						<p><%= rant.content %></p>
+					</div>
+
+					<nav class="level">
+						<div class="level-left is-mobile">
+							<%= like_or_dislike_btn(rant) %>
+							<small class="like-count"><%= @likes_with_count[rant.id] %></small>
+							<%= delete_or_retweet_btn(rant) %>
+						</div>
+					</nav>
+					</div>
+				</article>
+
+				<% end %>
+			</article>
+		</section>
+	</div>

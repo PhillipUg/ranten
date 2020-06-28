@@ -1,0 +1,23 @@
+<section class="section">
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-4">
+				<h2 class="title is-2">Log in</h2>
+				<%= form_with model: @user, local: true do |f| %>
+				<div class="field">
+					<div class="control">
+						<%= f.label "Username: ", class: "label" %>
+					</div>
+				</div>
+				<div class="field">
+					<div class="control">
+						<%= f.text_field :username, autofocus: true, class: "input" %>
+					</div>
+				</div>
+				<%= f.submit "Log in", class:"button is-info is-medium" %>
+				<% end %>
+				<br/>
+			</div>
+		</div>
+	</div>
+</section>

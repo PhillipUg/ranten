@@ -1,0 +1,85 @@
+<div class="user-page">
+	<div class="user-feed">
+		<%= default_cover(@user) %>
+		<div class="tabs">
+			<ul>
+				<li class="is-active"><a>RANTS</a></li>
+				<li><a>PHOTOS</a></li>
+				<li><a>FOLLOWING</a></li>
+				<li><a>FOLLOWERS</a></li>
+				<li><a>FAVORITES</a></li>
+				<li><a>LISTS</a></li>
+			</ul>
+		</div>
+
+		<div class="user-rants">
+			<% @user.rants.eager_load(:author).each do |rant| %>
+			<article class="media">
+				<div class="media-left">
+					<%= default_avatar(rant.author) %>
+				</div>
+				<div class="media-content">
+					<div class="content">
+						<small class="small"><%= time_ago_in_words(rant.created_at) %></small>
+						<strong><%= link_to "#{rant.author.full_name.capitalize}", user_path(rant.author.id), class: "name" %></strong><br />
+						<small>@<%= rant.author.username %></small><br />
+						<p><%= rant.content %></p>
+					</div>
+				</div>
+			</article>
+			<% end %>
+		</div>
+
+	</div>
+
+	<div class="user-prof">
+		<div class="prof-head">
+			<%= follow_plus(@user) %>
+			<%= default_avatar(@user) %>
+			<%= list_icon(@user) %>
+		</div>
+		<div class="user-name">
+			<strong class=""><%= @user.full_name.upcase %></strong><br />
+			<strong class="">@<%= @user.username %></strong><br />
+		</div>
+		
+
+		<div class="user-folw">
+			<div>
+				<p class="count"><%= @user.rants.count %></p>
+				<p class="">Rants</p>
+			</div>
+
+			<div>
+				<p class="count"><%= @following_with_count[@user.id] %></p>
+				<p class="">Following</p>
+			</div>
+			<div>
+				<p class="count"><%= @followers_with_count[@user.id] %></p>
+				<p class="">Followers</p>
+			</div>
+		</div>
+
+
+		
+		<p class="fol-by">FOLLOWED BY</p>
+		<div class="user-followers">
+			<% users_following(@user).each do |follower| %>
+
+			<article class="users">
+				<div>
+					<%= default_avatar(follower) %>
+				</div>
+				
+				<div>
+					<strong><%= link_to "#{follower.full_name.capitalize}", user_path(follower.id), class: "name" %></strong><br>
+					<small>@<%= follower.username %></small>
+				</div>
+				<%= follow_plus2(follower) %>
+			</article>
+
+			<% end %>
+		</div>
+	</div>
+</div>
+

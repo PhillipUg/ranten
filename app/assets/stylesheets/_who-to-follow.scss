@@ -1,0 +1,40 @@
+.side {
+  border-left: 1px solid #ddd;
+  margin-bottom: 80px;
+
+  .avatar {
+    border-radius: 50%;
+    width: 64px;
+  }
+
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.head {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+}
+
+.name {
+  color: black;
+}
+
+.content {
+  small {
+    color: #666;
+  }
+}
+
+.user {
+  display: flex;
+
+  div {
+    padding: 10px;
+  }
+}
