@@ -9,23 +9,44 @@
   <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap", media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag asset_path('favicon.ico') %>
 </head>
 
 <body>
   <div class="columns is-gapless">
-  <% if current_user %>
-
+    <% if current_user %>
     <%= render 'users/profile' %>
-    <div class="column has-background-white">
+    <div class="column">
       <%= render 'layouts/navigation' %>
+      <div class="notices">
+        <% if notice.present? %>
+        <p class="notice" id="notice"> <%= notice %> </p>
+        <% end %>
+
+        <% if alert.present? %>
+        <p class="alert" id="alert"> <%= alert %> </p>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
-  <% else %>
+    <% else %>
     <div class="column has-background-white">
       <%= render 'layouts/navigation' %>
+
+      <% if notice.present? %>
+      <div class="notice" id="notice">
+        <p> <%= notice %> </p>
+      </div>
+      <% end %>
+      <% if alert.present? %>
+      <div class="alert" id='alert'>
+        <p> <%= alert %> </p>
+      </div>
+      <% end %>
+
       <%= yield %>
     </div>
-  <% end %>
+    <% end %>
   </div>
 
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>

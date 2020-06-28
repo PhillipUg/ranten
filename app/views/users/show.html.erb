@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="user-page">
 	<div class="user-feed">
 		<%= default_cover(@user) %>
@@ -15,43 +13,30 @@
 		</div>
 
 		<div class="user-rants">
-				<% @user.rants.each do |rant| %>
-				<article class="media">
-					<div class="media-left">
-						<%= default_avatar(rant.author) %>
+			<% @user.rants.eager_load(:author).each do |rant| %>
+			<article class="media">
+				<div class="media-left">
+					<%= default_avatar(rant.author) %>
+				</div>
+				<div class="media-content">
+					<div class="content">
+						<small class="small"><%= time_ago_in_words(rant.created_at) %></small>
+						<strong><%= link_to "#{rant.author.full_name.capitalize}", user_path(rant.author.id), class: "name" %></strong><br />
+						<small>@<%= rant.author.username %></small><br />
+						<p><%= rant.content %></p>
 					</div>
-					<div class="media-content">
-						<div class="content">
-							<strong><%= link_to "#{rant.author.full_name.capitalize}", user_path(rant.author.id), class: "name" %></strong><br />
-							<small>@<%= rant.author.username %></small><br />
-							<p><%= rant.content %></p>
-						</div>
-					</div>
-				</article>
-				<% end %>
+				</div>
+			</article>
+			<% end %>
 		</div>
 
 	</div>
 
 	<div class="user-prof">
 		<div class="prof-head">
-
-			<% if current_user != @user %>
-			<% if @user.users_following.include?(current_user) %>
-			<%= link_to user_unfollow_path(@user.id), method: "DELETE" do %>
-			<div class="icon"><i class="fas fa-times"></i></div>
-			<% end %>
-			<% else %>
-			<%= link_to user_follow_path(@user.id), method: "POST" do %>
-			<div class="icon"><i class="fas fa-plus"></i></div>
-			<% end %>
-			<% end %>
-			<% end %>
-
+			<%= follow_plus(@user) %>
 			<%= default_avatar(@user) %>
-			<% if @user != current_user %>
-			<div class="icon"><i class="fas fa-list-ul"></i></div>
-			<% end %>
+			<%= list_icon(@user) %>
 		</div>
 		<div class="user-name">
 			<strong class=""><%= @user.full_name.upcase %></strong><br />
@@ -66,11 +51,11 @@
 			</div>
 
 			<div>
-				<p class="count"><%= @user.followed_users.count %></p>
+				<p class="count"><%= @following_with_count[@user.id] %></p>
 				<p class="">Following</p>
 			</div>
 			<div>
-				<p class="count"><%= @user.users_following.count %></p>
+				<p class="count"><%= @followers_with_count[@user.id] %></p>
 				<p class="">Followers</p>
 			</div>
 		</div>
@@ -79,7 +64,7 @@
 		
 		<p class="fol-by">FOLLOWED BY</p>
 		<div class="user-followers">
-			<% @users_following.each do |follower| %>
+			<% users_following(@user).each do |follower| %>
 
 			<article class="users">
 				<div>
@@ -90,11 +75,7 @@
 					<strong><%= link_to "#{follower.full_name.capitalize}", user_path(follower.id), class: "name" %></strong><br>
 					<small>@<%= follower.username %></small>
 				</div>
-				<% unless current_user || current_user.followed_users.include?(follower) %>
-				<%= link_to user_follow_path(follower.id), method: "POST" do %>
-				<div class="icon"><i class="fas fa-plus"></i></div>
-				<% end %>
-				<% end %>
+				<%= follow_plus2(follower) %>
 			</article>
 
 			<% end %>
